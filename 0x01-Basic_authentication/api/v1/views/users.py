@@ -42,8 +42,8 @@ def delete_user(user_id: str = None) -> str:
     - empty JSON is the User has been correctly deleted
     - 404 if the User ID doesn't exist
     """
-     if user_id is None:
-         abort(404)
+    if user_id is None:
+        abort(404)
     user = User.get(user_id)
     if user is None:
         abort(404)
@@ -114,7 +114,7 @@ def update_user(user_id: str = None) -> str:
         rj = None
     if rj is None:
         return jsonify({'error': "Wrong format"}), 400
-     if rj.get('first_name') is not None:
+    if rj.get('first_name') is not None:
         user.first_name = rj.get('first_name')
     if rj.get('last_name') is not None:
         user.last_name = rj.get('last_name')
